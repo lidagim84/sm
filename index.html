@@ -2,28 +2,76 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>studio take one</title>
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
+    <script src="js/ui.js"></script>
 </head>
 <body>
 <div id="wrap">
     <div id="header" class="header">header</div>
     <div id="container">
         <div id="contents">
-            <div class="section">섹션</div>
-            <div class="section">섹션</div>
-            <div class="section">섹션</div>
+               
+            <div class="section" id="section1">
+                <p class="message txt1">안녕하세요.</p>
+                <p class="message txt2">만나서 반갑습니다.</p>
+                <p class="message txt3">블라블라.</p>
+            </div>
+
+            
+
+            <div class="section" id="section2" style="background:url('http://images.china.cn/attachement/jpg/site1060/20131217/001ec949c5371419e47518.JPG') no-repeat 50% 0;background-size:cover;">섹션</div>
+            <div class="section" id="section3">섹션</div>
+
+            <style>
+                .message { -webkit-transform: translateX(-30px); transform: translateX(-30px); opacity: 0; transition: all 0.5s;}
+                .message.visible { opacity: 1;
+      -webkit-transform: translateX(0);
+              transform: translateX(0);
+      transition: all 0.5s;}
+            </style>
+                
+            <script>
+            (function () {
+                var slides = document.getElementsByClassName("section");
+ 
+                for (var i=0; i<slides.length; i++) {
+                var scene = new ScrollMagic.Scene({
+                    triggerElement: slides[i]
+                })
+                .setPin(slides[i])
+                .addIndicators() 
+                .addTo(controller);
+                }
+
+
+
+              var revealElements = document.getElementsByClassName("message");
+                for (var i=0; i<revealElements.length; i++) {
+                var scene2 = new ScrollMagic.Scene({
+                    triggerElement: revealElements[i], //각 요소가 트리거가 됨
+                    offset: 0,
+                    triggerHook: 0.11
+                })
+                .setClassToggle(revealElements[i], "visible") //해당 요소에 클래스 토글
+                .addTo(controller)
+                .addIndicators({name: "(box) " + (i+1), colorStart:"#F6B352", colorTrigger:"#F6B352"});
+                }
+            }())
+
+            </script>
         </div>
     </div>
     <div id="footer" class="footer">footer</div>
 </div>
 </body>
 
-<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
 </html>
