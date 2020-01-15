@@ -7,9 +7,9 @@
 .section [class*="txt"]{ display:inline-block;padding:10px;border-radius:10px;background:#fff;box-sizing:border-box;}
 
 #section1 [class*="txt"] {position:absolute;left:10px;max-width:90%;}
-#section1 .txt1 {top:75px;}
-#section1 .txt2 {top:125px;}
-#section1 .txt3 {top:175px;}
+#section1 .txt1 {top:125px;}
+#section1 .txt2 {top:175px;}
+#section1 .txt3 {top:225px;}
 
 #section1 {background:#67D5B5;}
 #section2 {background:#EE7785;}

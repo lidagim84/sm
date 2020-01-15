@@ -41,16 +41,16 @@
                 
             <script>
             (function () {
-                var slides = document.getElementsByClassName("section");
+                // var slides = document.getElementsByClassName("section");
  
-                for (var i=0; i<slides.length; i++) {
-                var scene = new ScrollMagic.Scene({
-                    triggerElement: slides[i]
-                })
-                .setPin(slides[i])
-                .addIndicators() 
-                .addTo(controller);
-                }
+                // for (var i=0; i<slides.length; i++) {
+                // var scene = new ScrollMagic.Scene({
+                //     triggerElement: slides[i]
+                // })
+                // .setPin(slides[i])
+                // .addIndicators() 
+                // .addTo(controller);
+                // }
 
 
 
@@ -58,8 +58,8 @@
                 for (var i=0; i<revealElements.length; i++) {
                 var scene2 = new ScrollMagic.Scene({
                     triggerElement: revealElements[i], //각 요소가 트리거가 됨
-                    offset: 0,
-                    triggerHook: 0.11
+                    offset: 20,
+                    triggerHook:0.15
                 })
                 .setClassToggle(revealElements[i], "visible") //해당 요소에 클래스 토글
                 .addTo(controller)
